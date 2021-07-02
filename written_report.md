@@ -54,6 +54,6 @@ The winning vote count was 272,892, and the percentage of winning votes was 73.8
 
 _Note: Please refer to the termimal screenshot below or click [here](https://github.com/weihaolun/election-analysis/blob/161dd8acccf89241788970adec1b838c3c1545a3/analysis/election_results.txt) to see printed results summary._
 
-![terminal_screenshot](https://user-images.githubusercontent.com/84211948/124240685-b0337f00-dab6-11eb-9858-22505fcdf515.png)
+   ![result](https://user-images.githubusercontent.com/84211948/124241370-69925480-dab7-11eb-95b3-eb6052b9faab.png)
 
 ## Election Audit Summary
