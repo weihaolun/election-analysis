@@ -22,11 +22,38 @@ The purpose of this challenge is to complete the election audit using Python by 
 
 The following sections of this report will address the overall results of the election audit, and a recommendation summary of re-using the script for future elections.
 
-## Election-Audit Results
+## Election Audit Results
 - **How many votes were cast in this congressional election?**
+
+  - There are total **369,711** votes casted through three types of voting methods (mail-in, punch cars and memory cards).
+
 - **Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.**
+
+     |   County   |   Percentage  |     Votes     |
+     | ------------- | ------------- | ------------- |
+     | Jefferson | 10.5%  | 38,855  |
+     | Denver  | 82.8%  | 306,055  |
+     | Arapahoe  | 6.7%  | 24,801  |
+
 - **Which county had the largest number of votes?**
+
+  - County **Denver** had the largest number of votes.
+  
 - **Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.**
+
+     |   Candidate   |   Percentage  |     Votes     |
+     | ------------- | ------------- | ------------- |
+     | Charles Casper Stockham | 23.0%  | 85,213  |
+     | Diana DeGette  | 73.8%  | 272,892  |
+     | Raymon Anthony Doane  | 3.1%  | 11,606  |
+ 
 - **Which candidate won the election, what was their vote count, and what was their percentage of the total votes?**
+  
+  -  The winner of the election was Diana DeGette.
+The winning vote count was 272,892, and the percentage of winning votes was 73.8%.
+
+_Note: Please refer to the termimal screenshot below or click [here](https://github.com/weihaolun/election-analysis/blob/161dd8acccf89241788970adec1b838c3c1545a3/analysis/election_results.txt) to see printed results summary._
+
+![terminal_screenshot](https://user-images.githubusercontent.com/84211948/124240685-b0337f00-dab6-11eb-9858-22505fcdf515.png)
 
 ## Election Audit Summary
