@@ -91,7 +91,7 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(election_results)
     
     #6a. Write a for loop to get the county from the county dictionary.
-    print(f"\nCounty Votes:\n")
+    print(f"\nCounty Votes:")
     txt_file.write(f"\nCounty Votes:\n")
     for county_name in county_votes:
         #6b. Retrieve the county vote count.
@@ -100,7 +100,7 @@ with open(file_to_save, "w") as txt_file:
         county_percentage = float(county_count) / float(total_votes) * 100
         #6d. Print the county results to the terminal.
         county_results = (f"{county_name}: {county_percentage:.1f}% ({county_count:,})\n")
-        print(county_results)
+        print(county_results, end="")
         #6e. Save the county votes to a text file.
         txt_file.write(county_results)   
         
@@ -130,7 +130,7 @@ with open(file_to_save, "w") as txt_file:
         # Calculate the percentage of votes.
         vote_percentage = float(votes) / float(total_votes) * 100
         # Print each candidate, their voter count, and percentage to the terminal.
-        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}%({votes:,})\n")
+        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
         print(candidate_results)
         # Save the candidate results to our text file.
         txt_file.write(candidate_results)
@@ -148,7 +148,6 @@ with open(file_to_save, "w") as txt_file:
 
     # Print the winner result
     winning_candidate_summary = (
-        f"\n"
         f"-------------------------\n"
         f"Winner: {winning_candidate}\n"
         f"Winning Vote Count: {winning_count:,}\n"
