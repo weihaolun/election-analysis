@@ -11,7 +11,7 @@ Previously, we have completed following parts of auditing using Python script:
 -	A summary of election winner results: winning candidate’s name, winning vote count and winning percentage.
 -	Printed and saved above results to a text file (as screenshot below).
 
-![part1_result](https://user-images.githubusercontent.com/84211948/124236667-63e64000-dab2-11eb-8716-3ee1d550d3d5.png)
+     ![part1_result](https://user-images.githubusercontent.com/84211948/124236667-63e64000-dab2-11eb-8716-3ee1d550d3d5.png)
 
 ### Purpose
 The purpose of this challenge is to complete the election audit using Python by adding the following parts:
