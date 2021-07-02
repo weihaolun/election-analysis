@@ -63,12 +63,12 @@ The core advantage of the election audit Python script is the reusability. The s
 - In this case, the data structure would be the same since the voting methods remain the same (mail-in, punch cars and memory cards). The columns in dataset would also be Ballot ID, County and Candidate.
 - Modification on data source:
    - Before: The data source is _**election_results.csv**_ in Resources folder, and we saved results as a text file into analysis folder.
-   ```
+     ```
      # Assign a variable to load a file from a path.
      file_to_load = os.path.join("Resources", "election_results.csv")
      # Assign a variable to save the file to a path.
      file_to_save = os.path.join("analysis", "election_results.txt")
-   ```
+     ```
    - After: We can put the new data source _**new_election.csv**_ into Resources folder again, and save results as another text file into anlysis folder and give it a new name _**new_results.txt**_
      ```
      # Assign a variable to load a file from a path.
