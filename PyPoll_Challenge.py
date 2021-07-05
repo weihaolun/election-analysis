@@ -54,7 +54,7 @@ with open(file_to_load) as election_data:
         # Print the candidate name from each row.
         candidate_name = row[2]
         
-        #3. Extract the country name from each row.
+        #3. Extract the county name from each row.
         county_name = row[1]
         
         
