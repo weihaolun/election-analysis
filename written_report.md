@@ -122,7 +122,9 @@ If the election contains an extra filter, for example, keep counties and add cit
      ```
 - In the for loop, after extracting candidate name and county name, extract city name as as well. (Let's assume city names were collected into the 4th column in csv file.)
     
-    ```city_name = row [3]
+    ```
+    city_name = row [3]
+    ```
 
 - Also in the for loop, add an if statement to add cities into the city list. Then begin tracking city votes.
      ```
