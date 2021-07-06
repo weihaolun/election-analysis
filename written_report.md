@@ -3,9 +3,9 @@
 ## Overview of Election Audit
 
 ### Background
-We have been helping Tom, an employee from Colorado Board of Election to audit the election results for US congressional precinct in Colorado. The results are tabulated and were given to us as [csv file resource](https://github.com/weihaolun/election-analysis/blob/161dd8acccf89241788970adec1b838c3c1545a3/Resources/election_results.csv).
+We have been helping Tom, an employee from Colorado Board of Election to audit the election results for US congressional precinct in Colorado. The results are tabulated and were given to us as a [csv file resource](https://github.com/weihaolun/election-analysis/blob/161dd8acccf89241788970adec1b838c3c1545a3/Resources/election_results.csv).
 
-Previously, we have completed following parts of auditing using Python script:
+Previously, we have completed the following parts of auditing using Python script:
 -	Total number of votes received.
 -	A list of voted candidates’ names with number of votes and the percentage of votes they received.
 -	A summary of election winner results: winning candidate’s name, winning vote count and winning percentage.
@@ -57,9 +57,10 @@ _Note: Please refer to the termimal screenshot below or click [here](https://git
    ![result](https://user-images.githubusercontent.com/84211948/124241370-69925480-dab7-11eb-95b3-eb6052b9faab.png)
 
 ## Election Audit Summary
-The core advantage of the election audit Python script is the reusability. The script can be used for other elections with simple modification. In this section, I will present two examples of how the script could be modified for other elections.
+The core advantage of the election audit Python script is the reusability. The script can be used for other elections with simple modification. In this section, I will present three examples of how the script could be modified for other elections.
 
-1. First, this script can be used for another similar election with minimum modification. When it’s the same congressional election for other counties, or it’s the senatorial election in the same counties, the modifications would be just on the data source.
+### Example 1 
+First, this script can be used for another similar election with minimum modification. When it’s the same congressional election for other counties, or it’s the senatorial election in the same counties, the modifications would be just on the data source.
 - In this case, the data structure would be the same since the voting methods remain the same (mail-in, punch cars and memory cards). The columns in dataset would also be Ballot ID, County and Candidate.
 - Modification on data source:
    - Before: The data source is _**election_results.csv**_ in Resources folder, and we saved results as a text file into analysis folder.
@@ -78,77 +79,80 @@ The core advantage of the election audit Python script is the reusability. The s
      ```  
 - After above modification, a new result will be pulled from the new election data source and saved to a new text file. This sould work with any local election with candidate name and voters' county.
 
-2. Now the votes are filtered by counties, we can re-use the script for elections in cities and even states by modifying variable’s name. Let's change "county" to "state" for example:
+### Example 2
+Now the votes are filtered by counties, we can re-use the script for elections in cities and even states by modifying variable’s name. Let's change "county" to "state" for example:
    - Before:
-    ```
-   county_list = []
-   county_votes = {}
-   winning_county_count = 0
-   winning_county_count = 0
-   winning_county_percentage = 0
-   county_name
-   county_count
-   county_percentage
-   county_results
-    ```
+     ```
+     county_list = []
+     county_votes = {}
+     winning_county_count = 0
+     winning_county_count = 0
+     winning_county_percentage = 0
+     county_name
+     county_count
+     county_percentage
+     county_results
+     ```
    - After:
-    ```
-   state_list = []
-   state_votes = {}
-   winning_state_count = 0
-   winning_state_count = 0
-   winning_state_percentage = 0
-   state_name
-   state_count
-   state_percentage
-   state_results
-    ```
+     ```
+     state_list = []
+     state_votes = {}
+     winning_state_count = 0
+     winning_state_count = 0
+     winning_state_percentage = 0
+     state_name
+     state_count
+     state_percentage
+     state_results
+     ```
 
   - With above modification, printed result will be listed as -state- instead of counties. As mentioned above, this modification would also apply to "city", "district", "area" etc.
 
-3. If the election needs an extra filter, for example, keep counties and add cities, we can add a code section in the script just like what we did for counties. This way, we can get results for both counties and cities.
+### Example 3
+If the election needs an extra filter, for example, keep counties and add cities, we can add a code section in the script just like what we did for counties. This way, we can get results for both counties and cities.
 
 - Create a city list, city votes dictionary, and create variables to track winning cities if necessary.
-  ```
-  city_list = []
-  city_votes = {}
+     ```
+     city_list = []
+     city_votes = {}
 
-  winning_city = ""
-  winning_city_count = 0
-  winnint_county_percentage = 0
-  ```
+     winning_city = ""
+     winning_city_count = 0
+     winnint_county_percentage = 0
+     ```
 - In the for loop, after extracting candidate name and county name, extract city name as as well. (Let's assume city name is collected into the 4th column in csv file.)
-  ```city_name = row [3]
+     ```city_name = row [3]
 
 - Also in the for loop, add an if statement to add cities into the city list. Then begin tracking city votes.
-  ```
-  if city_name not in city_list:
-    city_list.append(city_name)
-    city_votes[city_name] = 0
-  city_votes[city_name] += 1
-  ```
+     ```
+     if city_name not in city_list:
+         city_list.append(city_name)
+         city_votes[city_name] = 0
+     city_votes[city_name] += 1
+     ```
 - Create a for loop to get city results, this part can be written between county for loop and candidate for loop.
-  ```
-  for city_name in city_votes:
-    city_count = city_votes[city_name]
-    city_percentage = float(city_count) / float(total_votes) * 100
-    city_results = (f"{city_name}: {city_percentage:.1f}%) ({city_count:,})\n")
-    txt_file.write(city_results)
-  ```
+     ```
+     for city_name in city_votes:
+         city_count = city_votes[city_name]
+         city_percentage = float(city_count) / float(total_votes) * 100
+         city_results = (f"{city_name}: {city_percentage:.1f}%) ({city_count:,})\n")
+         print(city_results, end="")
+         txt_file.write(city_results)
+     ```
 - Write an if statement to determine the winning city and get its vote counts.
-  ```
-  if (city_count > winning_city_count) and (city_percentage > winning_city_percentage):
-  winning_city_count = city count
-  winning_city_percentage = city_percentage
-  winning city = city_name
-  ```
+     ```
+     if (city_count > winning_city_count) and (city_percentage > winning_city_percentage):
+         winning_city_count = city count
+         winning_city_percentage = city_percentage
+         winning city = city_name
+     ```
 - Print the city turnout
-  ```
-  winning_city_summary = (
-      f"\n"
-        f"-------------------------\n"
-        f"Largest City Turnout: {winning_city}\n"
-        f"-------------------------\n")
-    print(winning_city_summary)
-  ```
--After adding above coding blocks, we will get a seperate set results for different cities. We can also add more filter such as "district" or "state" by adding similar code.
+     ```
+       winning_city_summary = (
+           f"\n"
+           f"-------------------------\n"
+           f"Largest City Turnout: {winning_city}\n"
+           f"-------------------------\n")
+       print(winning_city_summary)
+     ```
+- After adding above coding blocks, we will get a seperate set results for different cities. We can also add more filter such as "district" or "state" by adding similar code.
