@@ -77,7 +77,7 @@ First, this script can be used for another similar election with minimum modific
      # Assign a variable to save the file to a path.
      file_to_save = os.path.join("analysis", "new_results.txt")
      ```  
-- After above modification, a new result will be pulled from the new election data source and saved to a new text file. This sould work with any local election with candidate name and voters' county.
+- After above modification, a new result will be pulled from the new election data source and saved to a new text file. This should work well for any local election with candidates' names and voters' counties collected.
 
 ### Example 2
 Now the votes are filtered by counties, we can re-use the script for elections in cities and even states by modifying variable’s name. Let's change "county" to "state" for example:
@@ -106,10 +106,10 @@ Now the votes are filtered by counties, we can re-use the script for elections i
      state_results
      ```
 
-  - With above modification, printed result will be listed as -state- instead of counties. As mentioned above, this modification would also apply to "city", "district", "area" etc.
+  - With above modification, printed result will be listed as **state** instead of **county**. As mentioned above, this modification would also apply to "city", "district", "area" etc.
 
 ### Example 3
-If the election needs an extra filter, for example, keep counties and add cities, we can add a code section in the script just like what we did for counties. This way, we can get results for both counties and cities.
+If the election contains an extra filter, for example, keep counties and add cities, we can add a code section in the script just like what we did for counties. This way, we can get results for both counties and cities.
 
 - Create a city list, city votes dictionary, and create variables to track winning cities if necessary.
      ```
@@ -118,10 +118,11 @@ If the election needs an extra filter, for example, keep counties and add cities
 
      winning_city = ""
      winning_city_count = 0
-     winnint_county_percentage = 0
+     winning_city_percentage = 0
      ```
-- In the for loop, after extracting candidate name and county name, extract city name as as well. (Let's assume city name is collected into the 4th column in csv file.)
-     ```city_name = row [3]
+- In the for loop, after extracting candidate name and county name, extract city name as as well. (Let's assume city names were collected into the 4th column in csv file.)
+    
+    ```city_name = row [3]
 
 - Also in the for loop, add an if statement to add cities into the city list. Then begin tracking city votes.
      ```
@@ -137,7 +138,6 @@ If the election needs an extra filter, for example, keep counties and add cities
          city_percentage = float(city_count) / float(total_votes) * 100
          city_results = (f"{city_name}: {city_percentage:.1f}%) ({city_count:,})\n")
          print(city_results, end="")
-         txt_file.write(city_results)
      ```
 - Write an if statement to determine the winning city and get its vote counts.
      ```
